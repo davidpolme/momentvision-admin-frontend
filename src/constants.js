@@ -1,1 +1,1 @@
-export const HOST = "http://localhost:8080";//backend host
+export const HOST = "http://localhost:8000";//backend host

@@ -52,26 +52,27 @@ const Programmer = () => {
     e.preventDefault();
     //save the data in variables
     const name = e.target.name.value;
-    const initialDate = e.target["initial-date"].value;
-    const initialHour = e.target["initial-hour"].value;
+    const startDate = e.target["initial-date"].value;
+    const startHour = e.target["initial-hour"].value;
     const endDate = e.target["end-date"].value;
     const endHour = e.target["end-hour"].value;
     const description = e.target.description.value;
-    const errorsInForm=validateForm(name, initialDate, initialHour, endDate, endHour, description);
+    const errorsInForm=validateForm(name, startDate, startHour, endDate, endHour, description);
     if(errorsInForm){
       return;
     }
     //create the object
     const event = {
       name,
-      initialDate,
-      initialHour,
+      startDate,
+      startHour,
       endDate,
       endHour,
       description,
     };
-    try{
 
+    console.log(event);
+    try{
       //send the object to the server
       const response = await sendProgrammerApi(event);
       if (response.status === 200) {
